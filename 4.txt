@@ -1,1 +1,2 @@
 master add a line.
+B2 add a line.
