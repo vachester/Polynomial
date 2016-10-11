@@ -260,4 +260,8 @@ public class Polynomial {
 	public String toString(){
 		return result;
 	}
+
+	public String Hello(){
+		return "Hello";
+	}
 }
