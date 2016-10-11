@@ -225,7 +225,7 @@ public class Polynomial {
 				if(sum.charAt(0) != '-'){
 					result = result + sum;
 				}
-				else{
+				else {
 					result = result + sum.substring(1);
 				}
 			}
