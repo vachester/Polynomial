@@ -33,6 +33,6 @@ public class Main {
 		
 		scan.close();
 	}
-	System.out.println("Hello");
+	System.out.println("HelloWord");
 	System.out.println("World");
 }
