@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * @author yangsheng
+ * @author yangsheng chenqiming
  */
 public class Main
 {
