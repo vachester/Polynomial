@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PolynomialTest {
+public class PolynomialTest2 {
 	Polynomial test = new Polynomial();
 	@Before
 	public void setUp() throws Exception {
@@ -18,11 +18,11 @@ public class PolynomialTest {
 
 	@Test
 	public void testDerivative() {
-		test.derivative("!d/dx");
+		test.derivative("!d/dy");
 		test.combine();
 		test.show();
 		String result = test.toString();
-		assertEquals("2*x*y", result);
+		assertEquals("x^2", result);
 	}
 
 }

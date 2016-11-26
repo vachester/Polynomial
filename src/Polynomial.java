@@ -240,11 +240,10 @@ public class Polynomial
 
                     {
                         value = mdata.get(key);
-                        sum = Integer.parseInt(mdata.get("sum"))
-                                * Math.pow(Integer.parseInt(num), Integer.parseInt(value));
-                        mdata.put("sum", Integer.toString((int) sum));
+                        sum = Integer.parseInt(mdata.get("sum")) * Math.pow(Integer.parseInt(num), Integer.parseInt(value));
+                        mdata.put("sum", Integer.toString((int) Math.abs(sum)));
                         mdata.remove(key);
-                        if (sum > 0)
+                        if (sum > 0 && mdata.get("status").equals("+") || (sum < 0 && mdata.get("status").equals("-")))
 
                         {
                             mdata.put("status", "+");
@@ -258,6 +257,9 @@ public class Polynomial
                 }
             }
         }
+        for (int i = 0; i < resultFormat.size(); i++) {
+			System.out.println(resultFormat.get(i));
+		}
     }
 
     /**
@@ -265,7 +267,6 @@ public class Polynomial
      *          void @throws
      */
     public void derivative(String operato)
-
     {
         String key = operato.substring(4);
         String value;
