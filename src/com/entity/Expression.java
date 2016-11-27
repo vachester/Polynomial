@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Expression {
 	// 定义结果，返回给控制类
@@ -28,7 +30,14 @@ public class Expression {
 	public List<Map<String, String>> getTmp() {
 		return tmpFormat;
 	}
-
+	
+	public boolean isCorrect(String input) {
+		Pattern pattern = Pattern.compile("[\\^+*a-z0-9.^-]*");
+		Matcher matcher = pattern.matcher(input);
+		boolean b = matcher.matches();
+		return b;
+	}
+	
 	/*
 	 * 进行初次处理 得到的是一个嵌套着Map的List 每一个Map对应着表达式的每一项
 	 * sum,status是每个Map的必有key，表示常数系数和正负号

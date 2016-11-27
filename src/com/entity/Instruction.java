@@ -1,6 +1,8 @@
 package com.entity;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Instruction {
 	// 定义结果，返回给控制类
@@ -19,6 +21,13 @@ public class Instruction {
 		this.ins = ins;
 	}
 
+	public boolean isCorrect(String input) {
+		Pattern pattern = Pattern.compile("!(simplify$|simplify\\s+[a-z]+=\\d$|simplify\\s+[a-z]+=\\d\\s+.*|d/d[a-z]*)");
+		Matcher matcher = pattern.matcher(input);
+		boolean b = matcher.matches();
+		return b;
+	}
+	
 	// 初始化各种数据
 	public void setItem() {
 		myExpression = new Expression(ex);

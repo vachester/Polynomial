@@ -7,9 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class InstructionTest {
+public class wInstructionTest2 {
 	
-	Instruction my = new Instruction("x^2*y","!d/dx");
+	Instruction my = new Instruction("x^2*y","!d/dy");
 	@Before
 	public void setUp() throws Exception {
 		my.setItem();
@@ -24,7 +24,7 @@ public class InstructionTest {
 		my.derivative();
 		my.toResult();
 		String result = my.getResult();
-		assertEquals("2*x*y", result);
+		assertEquals("x^2", result);
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.control;
 
+
 import com.entity.Instruction;
 
 public class InstructionControl {
@@ -12,7 +13,7 @@ public class InstructionControl {
 	public InstructionControl() {
 	}
 
-	public InstructionControl(String ins, String ex) {
+	public InstructionControl(String ex, String ins) {
 		this.ins = ins;
 		this.ex = ex;
 	}
@@ -31,15 +32,22 @@ public class InstructionControl {
 
 	public void toInstruction() {
 		Instruction myInstruction = new Instruction(ex, ins);
-		// 先初始化各种数据
-		myInstruction.setItem();
-		// 判断操作类型
-		if (ins.charAt(1) == 's') {
-			myInstruction.simplify();
-		} else {
-			myInstruction.derivative();
+		if(myInstruction.isCorrect(ins)) {
+			// 先初始化各种数据
+			myInstruction.setItem();
+			// 判断操作类型
+			if (ins.charAt(1) == 's') {
+				myInstruction.simplify();
+			} else if (ins.charAt(1) == 'd') {
+				myInstruction.derivative();
+			} else {
+				this.result = ex;
+			}
+			myInstruction.toResult();
+			this.result = myInstruction.getResult();
 		}
-		myInstruction.toResult();
-		this.result = myInstruction.getResult();
+		else {
+			this.result = "Format error! Please input again!";
+		}
 	}
 }

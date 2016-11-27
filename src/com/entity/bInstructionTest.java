@@ -6,13 +6,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.control.InstructionControl;
 
-public class InstructionTest3 {
-	
-	Instruction my = new Instruction("x^2*y","!d/dz");
+public class bInstructionTest {
+
+	InstructionControl my = new InstructionControl("x*2","!simplify x=2");
 	@Before
 	public void setUp() throws Exception {
-		my.setItem();
+		my.toInstruction();
 	}
 
 	@After
@@ -20,11 +21,9 @@ public class InstructionTest3 {
 	}
 
 	@Test
-	public void testDerivative() {
-		my.derivative();
-		my.toResult();
+	public void testSimplify() {
 		String result = my.getResult();
-		assertEquals("0", result);
+		assertEquals("4", result);
 	}
 
 }
